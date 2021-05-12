@@ -7,7 +7,6 @@ const Search = ({ getQuery }) => {
 
   const onChange = (q) => {
     setText(q)
-    getQuery(q)
   }
 
   return (
@@ -17,7 +16,15 @@ const Search = ({ getQuery }) => {
         placeholder='Youtube Embed code here'
         value={text}
         onChange={e => onChange(e.target.value)}
+        onKeyPress={() => getQuery(text)}
       />
+      <button 
+        style={{ margin: 15 }}
+        onClick={() => getQuery(text)}
+      >
+        Search
+      </button>
+
     </div>
   )
 }
